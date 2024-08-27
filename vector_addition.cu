@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <cuda_runtime.h>
 
@@ -13,9 +14,11 @@ int main() {
     int n = 5;
     int a[] = {1, 2, 3, 4, 5};
     int b[] = {10, 20, 30, 40, 50};
-    int c[n];
+    
+    // Allocate memory for the result array 'c' on the CPU (Host)
+    int *c = (int*)malloc(n * sizeof(int));
 
-    // Allocate memory on the GPU
+    // Allocate memory on the GPU (Device)
     int *d_a, *d_b, *d_c;
     cudaMalloc((void**)&d_a, n * sizeof(int));
     cudaMalloc((void**)&d_b, n * sizeof(int));
@@ -42,6 +45,9 @@ int main() {
         printf("%d ", c[i]);
     }
     printf("\n");
+
+    // Free the CPU memory
+    free(c);
 
     return 0;
 }
