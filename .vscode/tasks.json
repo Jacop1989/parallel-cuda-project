@@ -1,0 +1,26 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build CUDA Program",
+            "type": "shell",
+            "command": "nvcc",
+            "options": {
+                "env": {
+                    "PATH": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.6\\bin;${env:PATH}"
+                }
+            },
+            "args": [
+                "-o",
+                "${workspaceFolder}/my_cuda_program",
+                "${workspaceFolder}/my_cuda_program.cu"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Task to compile CUDA file"
+        }
+    ]
+}

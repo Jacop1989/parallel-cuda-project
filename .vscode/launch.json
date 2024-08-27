@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch CUDA Program",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/my_cuda_program",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "Build CUDA Program",
+            "miDebuggerArgs": [],
+            "logging": {
+                "trace": true
+            }
+        }
+    ]
+}
